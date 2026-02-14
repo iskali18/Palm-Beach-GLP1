@@ -1,22 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-
-/* =========================
-   Clean, calm, non-ad style
-   ========================= */
-
 :root{
---bg: #fafaf8;
-  --panel: #ffffff;
+  --bg: #fcfcfa;        /* off-white */
   --text: #101318;
   --muted: #5f6b7a;
-  --rule: #e6e9ef;
+  --rule: #e6e8ee;
 
-  --link: #1f4b63;        /* muted blue-teal */
-  --linkHover: #16384a;
+  --link: #1f4b63;
+  --linkHover: #123241;
 
-  --max: 920px;
-  --radius: 14px;
+  --max: 960px;
+  --radius: 16px;
 }
 
 *{ box-sizing:border-box; }
@@ -26,7 +20,8 @@ img{ max-width:100%; height:auto; display:block; }
 body{
   background: var(--bg);
   color: var(--text);
-  line-height: 1.65;
+  line-height: 1.6;
+  font-size: 16px; /* your request */
   overflow-x: hidden;
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
@@ -34,59 +29,77 @@ body{
 p{ margin: 0 0 12px; }
 h1,h2,h3{ margin:0 0 10px; line-height:1.2; }
 h1{
-  font-size: clamp(1.9rem, 2.8vw, 2.45rem);
-  letter-spacing: -0.02em;
-  font-weight: 500;   /* ← add this line */
+  font-size: clamp(2.1rem, 3.1vw, 2.8rem);
+  letter-spacing:-.02em;
+  font-weight: 500; /* lighter H1 */
 }
-h2{ font-size: 1.55rem; letter-spacing:-.01em; }
-h3{ 
-  font-size: 1.08rem; 
+h2{
+  font-size: 1.55rem;
+  letter-spacing:-.01em;
+  font-weight: 600;
+}
+h3{
+  font-size: 1.08rem;
   font-weight: 600;
 }
 
-.lead{ font-size: 1.05rem; color: rgba(16,19,24,.78); }
 .muted{ color: var(--muted); }
-.meta{ color: var(--muted); font-size: .95rem; }
+.meta{ color: var(--muted); font-size:.95rem; }
+.body-lg{ font-size: 1rem; } /* stays at 16px */
 
-ul{ margin:0; padding:0; list-style:none; }
-
-/* Links: NO underline. Not “ad-like”. */
-a{
-  color: var(--link);
-  text-decoration: none;
-  transition: color .15s ease;
-}
-
-a:hover{
-  color: #0f2f42;        /* slightly darker */
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-
-
-/* Layout */
 .container{
   max-width: var(--max);
-  width: 100%;
   margin: 0 auto;
   padding: 0 22px;
 }
 
-/* Spacing rhythm (less giant gaps) */
-.section{ padding: 36px 0; }
-.section-head{ margin-bottom: 14px; }
+/* Remove the “striped sections”: all sections share the same background */
+.section{ padding: 30px 0; }
 
-/* Light panels without “ad blocks” */
-.section-alt{
-  background: var(--panel);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-  margin: 16px 0;
+/* Header */
+.header{
+  background: rgba(252,252,250,.90);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 }
-.section-alt .container{
-  padding-top: 28px;
-  padding-bottom: 28px;
+.header-inner{
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+}
+.brand a{
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+}
+.brand small{ display:block; margin-top:2px; }
+
+.nav a{
+  color: rgba(16,19,24,.80);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 14px;
+}
+.nav a:hover{
+  color: rgba(16,19,24,.98);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Links: more obvious without looking “salesy” */
+a{
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover{
+  color: var(--linkHover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* Skip link */
@@ -97,180 +110,86 @@ a:hover{
   left:22px; top:22px; width:auto; height:auto;
   padding:10px 12px;
   background: var(--text);
-  color: #fff;
+  color:#fff;
   z-index:9999;
 }
 
-/* Header */
-.header{
-  background: rgba(242,244,247,.92);
-  border-bottom: 1px solid var(--rule);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(10px);
+/* Big image under first paragraph */
+.hero-image{
+  margin: 14px 0 14px;
 }
-
-.header-inner{
-  display:flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  padding: 14px 0;
-}
-
-.brand a{
-  color: var(--text);
-  font-weight: 900;
-  letter-spacing: -.01em;
-}
-.brand small{
-  display:block;
-  margin-top: 2px;
-  color: var(--muted);
-}
-
-.nav a{
-  color: rgba(16,19,24,.78);
-  font-weight: 800;
-  margin-left: 14px;
-}
-.nav a:hover{
-  color: rgba(16,19,24,.95);
-}
-
-/* Hero */
-.hero{
-  padding: 44px 0;
-  border-bottom: 1px solid var(--rule);
-  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(242,244,247,0));
-}
-.hero-cta{
-  margin: 14px 0 6px;
-  display:flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-/* Buttons: not buttons. Calm “text actions”. */
-.btn,
-.btn-ghost,
-.btn-small{
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  font-weight: 900;
-  color: var(--link);
-  cursor: pointer;
-}
-.btn:hover,
-.btn-ghost:hover,
-.btn-small:hover{
-  color: var(--linkHover);
-}
-
-/* Bullets: clean, aligned, not “marketingy” */
-.hero-bullets{
-  margin-top: 10px;
-  display: grid;
-  gap: 6px;
-}
-.hero-bullets li{
-  color: rgba(16,19,24,.74);
-}
-.hero-bullets li::before{
-  content: "• ";
-  color: rgba(16,19,24,.35);
-  font-weight: 900;
-}
-
-/* ===== Kill “grid of ad cards” ===== */
-.card-grid,
-.grid-3{
-  display: block;
-}
-
-/* Directory rows: subtle, readable, not boxy */
-.mini-card,
-.card{
-  padding: 12px 0;
-  padding-left: 0;
-  margin: 0 0 22px;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-}
-
-
-
-/* Make headings feel like headings, and links not scream “ad” */
-.mini-card h3,
-.card h3{
-  margin-bottom: 2px;
-}
-.mini-card p,
-.card p{
-  margin: 0;
-  color: var(--muted);
-}
-
-/* “Visit Website” shouldn’t look like an ad button */
-.card .btn{
-  display: inline-block;
-  margin-top: 6px;
-  font-weight: 900;
-  color: rgba(16,19,24,.80);
-}
-.card .btn:hover{
-  color: rgba(16,19,24,.98);
-}
-
-/* Pills: keep them neutral */
-.pill-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 10px;
-}
-
-.pill{
-  background: #fff;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: .92rem;
-  font-weight: 800;
-  color: rgba(16,19,24,.78);
-  text-decoration: none;
-}
-.pill:hover{
-  color: rgba(16,19,24,.95);
-}
-
-/* FAQ: simple and calm */
-.faq{ display:grid; gap: 10px; }
-.faq-item{
-  background: #fff;
-  border: 1px solid var(--rule);
+.hero-image img{
+  width: 100%;
   border-radius: var(--radius);
-  padding: 12px 14px;
 }
-.faq-item summary{
-  cursor: pointer;
-  font-weight: 900;
-  list-style: none;
+.hero-image figcaption{
+  margin-top: 8px;
+  font-size: .95rem;
 }
-.faq-item summary::-webkit-details-marker{ display:none; }
-.faq-item p{
-  margin: 10px 0 0;
-  color: rgba(16,19,24,.74);
+
+/* Sources line */
+.sources{
+  margin-top: 10px;
+  font-size: .95rem;
+  color: var(--muted);
+}
+
+/* Explore treatment types: tasteful “mini cards” without looking like ads */
+.service-list{
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+  max-width: 760px;
+}
+
+.service-item{
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.service-link{
+  display: inline-block;
+  font-size: 1.2rem;     /* ~19px */
+  font-weight: 700;
+  color: var(--link);
+  text-decoration: none; /* only underline on hover via global rule */
+}
+.service-desc{
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+/* Providers list */
+.clinic-list{
+  margin-top: 12px;
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+}
+
+.clinic{
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: #fff;
+}
+.clinic-desc{ color: var(--muted); }
+
+/* “Action” links: a bit more visible but still tasteful */
+.action-link{
+  font-weight: 600;
+}
+
+.cta-row{
+  margin-top: 12px;
 }
 
 /* Footer */
-footer{
+.footer{
   border-top: 1px solid var(--rule);
-  color: var(--muted);
-  font-size: .95rem;
+  padding: 18px 0 28px;
 }
 
 /* Mobile */
