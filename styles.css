@@ -132,17 +132,16 @@ a:hover{
 }
 
 .feature-image img{
-  width:100%;
-  height:auto;
-  border-radius:6px;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .image-caption{
-  font-size:.9rem;
-  color:#6b7280;
-  margin-top:8px;
+  font-size: .9rem;
+  color: #6b7280;
+  margin-top: 8px;
 }
-
 
 /* Sources line */
 .sources{
