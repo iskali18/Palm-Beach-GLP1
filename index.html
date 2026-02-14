@@ -1,3 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>GLP-1 Weight Loss Clinics in Palm Beach | Semaglutide & Tirzepatide</title>
+
+  <meta name="description"
+    content="Browse GLP-1 weight loss clinics in Palm Beach offering semaglutide, tirzepatide, and medically supervised programs across Palm Beach County." />
+
+  <meta name="robots" content="index,follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://palmbeachglp1.com/" />
+
+  <!-- Styles (explicit relative path + cache busting) -->
+  <link rel="stylesheet" href="./styles.css?v=4" />
+
+  <!-- Favicon (explicit relative path) -->
+  <link rel="icon" href="./assets/favicon.ico" />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "GLP-1 Weight Loss Clinics in Palm Beach",
+    "description": "Directory of Palm Beach clinics offering semaglutide, tirzepatide, and medically supervised weight loss programs.",
+    "url": "https://palmbeachglp1.com/",
+    "numberOfItems": 3,
+    "itemListElement": [
+      {
+        "@type": "LocalBusiness",
+        "position": 1,
+        "name": "Clinic Name",
+        "areaServed": "West Palm Beach, FL",
+        "url": "https://example.com"
+      },
+      {
+        "@type": "LocalBusiness",
+        "position": 2,
+        "name": "Clinic Name",
+        "areaServed": "Palm Beach Gardens, FL",
+        "url": "https://example.com"
+      },
+      {
+        "@type": "LocalBusiness",
+        "position": 3,
+        "name": "Clinic Name",
+        "areaServed": "Boca Raton, FL",
+        "url": "https://example.com"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <div class="brand">
+      <a href="./index.html"><strong>PalmBeachGLP1</strong></a>
+      <small class="muted">Local GLP-1 Clinic Directory</small>
+    </div>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="./index.html">Home</a>
+      <a href="./listings.html">Clinics</a>
+    </nav>
+  </div>
+</header>
+
 <main id="main">
 
   <!-- HERO / EDITORIAL INTRO -->
@@ -21,8 +98,7 @@
     </div>
   </section>
 
-
-  <!-- EXPLORE BY SERVICE (CONTROLLED CARD USE) -->
+  <!-- EXPLORE BY SERVICE -->
   <section class="section section-alt">
     <div class="container">
 
@@ -33,22 +109,22 @@
 
       <div class="card-grid">
 
-        <a class="mini-card" href="listings.html#semaglutide">
+        <a class="mini-card" href="./listings.html#semaglutide">
           <h3>Semaglutide Programs</h3>
           <p>Weekly GLP-1 treatments prescribed and monitored by medical providers.</p>
         </a>
 
-        <a class="mini-card" href="listings.html#tirzepatide">
+        <a class="mini-card" href="./listings.html#tirzepatide">
           <h3>Tirzepatide Options</h3>
           <p>Dual-action therapies increasingly offered by local clinics.</p>
         </a>
 
-        <a class="mini-card" href="listings.html#medical-weight-loss">
+        <a class="mini-card" href="./listings.html#medical-weight-loss">
           <h3>Medical Weight Loss</h3>
           <p>Structured physician-guided programs with follow-ups and monitoring.</p>
         </a>
 
-        <a class="mini-card" href="listings.html#concierge-wellness">
+        <a class="mini-card" href="./listings.html#concierge-wellness">
           <h3>Concierge Wellness</h3>
           <p>Personalized longevity and premium wellness services.</p>
         </a>
@@ -57,7 +133,6 @@
 
     </div>
   </section>
-
 
   <!-- EDUCATIONAL CONTENT -->
   <section class="section">
@@ -80,23 +155,19 @@
     </div>
   </section>
 
-
-  <!-- IMAGE BREAK (VERY IMPORTANT FOR READABILITY) -->
+  <!-- IMAGE BREAK -->
   <section class="section">
     <div class="container">
-
       <figure>
-        <img src="assets/glp1-consultation.jpg" alt="Medical consultation discussing weight loss treatment options">
+        <img src="./assets/glp1-consultation.jpg" alt="Medical consultation discussing weight loss treatment options">
         <figcaption class="muted">
           Many Palm Beach clinics offer medically supervised consultations before beginning treatment.
         </figcaption>
       </figure>
-
     </div>
   </section>
 
-
-  <!-- FEATURED CLINICS (SIMPLE LIST — NOT CARDS) -->
+  <!-- FEATURED CLINICS -->
   <section class="section section-alt">
     <div class="container">
 
@@ -119,7 +190,24 @@
         <a class="btn-small" href="#" target="_blank" rel="nofollow noopener">Visit Website</a>
       </article>
 
+      <div class="section-cta">
+        <a class="btn" href="./listings.html">See all clinics</a>
+      </div>
+
     </div>
   </section>
 
 </main>
+
+<footer class="section">
+  <div class="container">
+    <p class="muted">© <span id="year"></span> PalmBeachGLP1.com — Local directory resource.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
