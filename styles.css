@@ -1,165 +1,211 @@
-/* ===== BASIC RESET ===== */
-* {
-  box-sizing: border-box;
+/* ===== Reset ===== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; height: auto; display: block; }
+
+:root{
+  --page:#ffffff;
+  --text:#111318;
+  --muted:#5e6776;
+  --line:#e7e8ec;
+  --alt:#f6f7f8;
+
+  /* Muted “editorial” accent (NOT Google-blue) */
+  --accent:#2f5d50;         /* deep green */
+  --accent-ink:#ffffff;
+
+  --chip:#f1f2f4;
+  --chip-ink:#262b33;
+
+  --radius:12px;
+  --radius-sm:10px;
+  --max:1000px;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--page);
+  overflow-x: hidden;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  color: #111;
-  background: #ffffff;
-}
+a { color: inherit; text-decoration: none; }
+p { margin: 0 0 1rem; }
+h1, h2, h3 { margin: 0 0 .6rem; line-height: 1.2; }
+h1 { font-size: 2.2rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.5rem; letter-spacing: -0.01em; }
+.lead { font-size: 1.05rem; color: rgba(17,19,24,.78); }
+.muted { color: var(--muted); }
+.meta { color: var(--muted); font-size: .92rem; }
 
-/* ===== LAYOUT ===== */
-.container {
-  max-width: 1000px;
+/* Remove default list indent (this fixes the “alignment looks off” issue too) */
+ul { margin: 0; padding: 0; list-style: none; }
+
+/* ===== Layout ===== */
+.container{
+  max-width: var(--max);
   margin: 0 auto;
+  width: 100%;
   padding: 0 20px;
 }
 
-.section {
-  padding: 40px 0;
+.section{ padding: 44px 0; }
+.section-alt{ background: var(--alt); }
+.section-head{ margin-bottom: 16px; }
+
+/* ===== Header ===== */
+.header{
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid var(--line);
 }
 
-.section-alt {
-  background: #f5f6f8;
-}
-
-/* ===== HEADER ===== */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  background: #fff;
-}
-
-.header-inner {
+.header-inner{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 0;
+  gap: 14px;
 }
 
-.nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
+.brand a{ font-weight: 800; letter-spacing: -0.01em; }
+.brand small{ display: block; margin-top: 2px; }
+
+.nav a{
+  margin-left: 14px;
+  font-weight: 650;
+  color: rgba(17,19,24,.78);
+}
+.nav a:hover{ color: rgba(17,19,24,.95); }
+
+/* ===== Hero ===== */
+.hero{
+  padding: 56px 0;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(900px 280px at 20% 0%, rgba(47,93,80,.10), rgba(47,93,80,0) 60%),
+    radial-gradient(900px 280px at 85% 0%, rgba(0,0,0,.04), rgba(0,0,0,0) 60%);
 }
 
-/* ===== HERO ===== */
-.hero {
-  padding: 60px 0;
-  border-bottom: 1px solid #e5e5e5;
+.hero-copy{ max-width: none; } /* keep visual alignment consistent */
+.hero-cta{ margin: 16px 0 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* Bullets: calm, not “marketing” */
+.hero-bullets{ margin-top: 10px; display: grid; gap: 8px; }
+.hero-bullets li{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(17,19,24,.78);
+}
+.hero-bullets li::before{
+  content:"";
+  width: 8px;
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: rgba(47,93,80,.35);
 }
 
-.hero-copy {
-  max-width: 700px;
-}
-
-h1 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-}
-
-h2 {
-  margin-bottom: 10px;
-}
-
-.lead {
-  font-size: 1.1rem;
-  color: #444;
-}
-
-/* ===== BUTTONS ===== */
-.btn {
+/* ===== Buttons (less “ad-like”) ===== */
+.btn{
   display: inline-block;
-  background: #2b6de8;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-right: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 1px solid rgba(17,19,24,.14);
+  background: var(--accent);
+  color: var(--accent-ink);
 }
 
-.btn-ghost {
+.btn:hover{ filter: brightness(0.98); }
+
+.btn-ghost{
   background: transparent;
-  border: 1px solid #ccc;
-  color: #333;
+  color: rgba(17,19,24,.85);
+  border-color: rgba(17,19,24,.18);
 }
 
-/* ===== CARDS ===== */
-.card-grid {
+.btn-small{
+  padding: 9px 12px;
+  font-size: .95rem;
+  border-radius: 10px;
+}
+
+/* ===== Cards / Grids ===== */
+.card-grid, .grid-3{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
 }
 
-.card {
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  padding: 16px;
+.card, .mini-card{
   background: #fff;
-}
-
-.card h3 {
-  margin-top: 0;
-}
-
-.meta {
-  color: #777;
-  font-size: 0.9rem;
-}
-
-/* ===== MINI CARDS ===== */
-.mini-card {
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   padding: 16px;
-  background: #fff;
-  text-decoration: none;
-  color: inherit;
 }
 
-.mini-card:hover {
-  background: #fafafa;
+/* Soft hover, no “app ad” feeling */
+.mini-card:hover{
+  background: #fbfbfc;
+  border-color: rgba(17,19,24,.18);
 }
 
-/* ===== PILLS ===== */
-.pill-row {
+/* ===== Pills / Chips (make these neutral + nice) ===== */
+.pill-row{
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.pill {
-  border: 1px solid #ddd;
+.pill{
+  display: inline-flex;
+  align-items: center;
   padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  border-radius: 999px;
+  background: var(--chip);
+  color: var(--chip-ink);
+  border: 1px solid rgba(17,19,24,.10);
+  font-weight: 650;
+  font-size: .92rem;
+}
+
+/* If pills are links (listings page quick-nav), style them the same */
+a.pill:hover{
+  background: #e9ecef;
+  border-color: rgba(17,19,24,.14);
+}
+
+/* ===== Prose ===== */
+.prose{ max-width: none; }
+
+/* ===== FAQ ===== */
+.faq{ display: grid; gap: 10px; }
+.faq-item{
   background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.faq-item summary{
+  cursor: pointer;
+  font-weight: 750;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item p{ margin: 10px 0 0; color: rgba(17,19,24,.80); }
+
+/* ===== Footer ===== */
+footer{
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .92rem;
 }
 
-/* ===== FOOTER ===== */
-footer {
-  border-top: 1px solid #e5e5e5;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 700px) {
-
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
+/* ===== Mobile ===== */
+@media (max-width: 700px){
+  .header-inner{ flex-direction: column; align-items: flex-start; }
+  .nav a{ margin-left: 0; margin-right: 14px; }
+  h1{ font-size: 2rem; }
 }
