@@ -54,7 +54,7 @@ h3{
 }
 
 /* Remove the “striped sections”: all sections share the same background */
-.section{ padding: 15px 0; }
+.section{ padding: 24px 0; }
 
 /* Header */
 .header{
