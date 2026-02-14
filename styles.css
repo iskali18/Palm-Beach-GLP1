@@ -1,256 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+
 /* =========================
-   SIMPLE EDITORIAL STYLE
+   Clean, calm, non-ad style
    ========================= */
 
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ---------- Colors ---------- */
-
-:root {
-  --bg: #f5f6f8;        /* cool light gray */
+:root{
+  --bg: #f2f4f7;          /* cool light gray */
   --panel: #ffffff;
-  --text: #14161a;
-  --muted: #6b7280;
-  --rule: #e6e8ee;
-  --link: #2b5568;
-  --max: 900px;
+  --text: #101318;
+  --muted: #5f6b7a;
+  --rule: #e6e9ef;
+
+  --link: #1f4b63;        /* muted blue-teal */
+  --linkHover: #16384a;
+
+  --max: 920px;
+  --radius: 14px;
 }
 
-/* ---------- Base ---------- */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+img{ max-width:100%; height:auto; display:block; }
 
-body {
+body{
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: Manrope, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.65;
   overflow-x: hidden;
 }
 
-a {
+p{ margin: 0 0 12px; }
+h1,h2,h3{ margin:0 0 10px; line-height:1.2; }
+h1{ font-size: clamp(1.9rem, 2.8vw, 2.45rem); letter-spacing:-.02em; }
+h2{ font-size: 1.55rem; letter-spacing:-.01em; }
+h3{ font-size: 1.08rem; font-weight: 800; }
+
+.lead{ font-size: 1.05rem; color: rgba(16,19,24,.78); }
+.muted{ color: var(--muted); }
+.meta{ color: var(--muted); font-size: .95rem; }
+
+ul{ margin:0; padding:0; list-style:none; }
+
+/* Links: NO underline. Not “ad-like”. */
+a{
   color: var(--link);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
+}
+a:hover{
+  color: var(--linkHover);
 }
 
-a:hover {
-  opacity: .8;
-}
-
-p {
-  margin: 0 0 1rem;
-}
-
-h1, h2, h3 {
-  margin: 0 0 .6rem;
-  line-height: 1.2;
-}
-
-h1 {
-  font-size: clamp(2rem, 3vw, 2.5rem);
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-size: 1.6rem;
-}
-
-h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-.lead {
-  font-size: 1.05rem;
-  color: rgba(20,22,26,.75);
-}
-
-.muted {
-  color: var(--muted);
-}
-
-.meta {
-  color: var(--muted);
-  font-size: .95rem;
-}
-
-/* ---------- Layout ---------- */
-
-.container {
+/* Layout */
+.container{
   max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 20px;
   width: 100%;
+  margin: 0 auto;
+  padding: 0 22px;
 }
 
-.section {
-  padding: 48px 0;
-}
+/* Spacing rhythm (less giant gaps) */
+.section{ padding: 36px 0; }
+.section-head{ margin-bottom: 14px; }
 
-.section-alt {
+/* Light panels without “ad blocks” */
+.section-alt{
   background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  margin: 16px 0;
+}
+.section-alt .container{
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 
-/* ---------- Header ---------- */
+/* Skip link */
+.skip-link{
+  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  left:22px; top:22px; width:auto; height:auto;
+  padding:10px 12px;
+  background: var(--text);
+  color: #fff;
+  z-index:9999;
+}
 
-.header {
-  background: rgba(245,246,248,.9);
+/* Header */
+.header{
+  background: rgba(242,244,247,.92);
   border-bottom: 1px solid var(--rule);
   position: sticky;
   top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 }
 
-.header-inner {
-  display: flex;
+.header-inner{
+  display:flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 16px 0;
+  gap: 16px;
+  padding: 14px 0;
 }
 
-.brand a {
-  text-decoration: none;
+.brand a{
   color: var(--text);
-  font-weight: 800;
+  font-weight: 900;
+  letter-spacing: -.01em;
 }
-
-.brand small {
-  display: block;
+.brand small{
+  display:block;
+  margin-top: 2px;
   color: var(--muted);
 }
 
-.nav a {
-  text-decoration: none;
-  margin-left: 16px;
-  font-weight: 600;
-  color: var(--text);
+.nav a{
+  color: rgba(16,19,24,.78);
+  font-weight: 800;
+  margin-left: 14px;
+}
+.nav a:hover{
+  color: rgba(16,19,24,.95);
 }
 
-.nav a:hover {
-  text-decoration: underline;
+/* Hero */
+.hero{
+  padding: 44px 0;
+  border-bottom: 1px solid var(--rule);
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(242,244,247,0));
+}
+.hero-cta{
+  margin: 14px 0 6px;
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-/* ---------- Hero ---------- */
-
-.hero {
-  padding: 60px 0;
-}
-
-.hero-cta {
-  margin: 14px 0 10px;
-}
-
-/* buttons become simple links */
+/* Buttons: not buttons. Calm “text actions”. */
 .btn,
-.btn-ghost {
+.btn-ghost,
+.btn-small{
   background: none;
   border: none;
   padding: 0;
+  font: inherit;
+  font-weight: 900;
   color: var(--link);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
   cursor: pointer;
 }
-
-.hero-bullets {
-  margin-top: 12px;
+.btn:hover,
+.btn-ghost:hover,
+.btn-small:hover{
+  color: var(--linkHover);
 }
 
-.hero-bullets li {
-  color: rgba(20,22,26,.75);
+/* Bullets: clean, aligned, not “marketingy” */
+.hero-bullets{
+  margin-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+.hero-bullets li{
+  color: rgba(16,19,24,.74);
+}
+.hero-bullets li::before{
+  content: "• ";
+  color: rgba(16,19,24,.35);
+  font-weight: 900;
 }
 
-.hero-bullets li::before {
-  content: "— ";
-  color: rgba(20,22,26,.4);
-}
-
-/* ---------- Directory Items ---------- */
-
+/* ===== Kill “grid of ad cards” ===== */
 .card-grid,
-.grid-3 {
+.grid-3{
   display: block;
 }
 
-/* remove boxes entirely */
-.card,
-.mini-card {
+/* Directory rows: subtle, readable, not boxy */
+.mini-card,
+.card{
+  padding: 12px 0;
+  margin: 0 0 18px;
   background: transparent;
   border: none;
-  padding: 0;
-  margin-bottom: 28px;
+  border-radius: 0;
 }
 
-.card p,
-.mini-card p {
+/* Give items a tiny left accent so they feel designed without looking like ads */
+.mini-card,
+.card{
+  position: relative;
+  padding-left: 14px;
+}
+.mini-card::before,
+.card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 999px;
+  background: rgba(31,75,99,.20);
+}
+
+/* Make headings feel like headings, and links not scream “ad” */
+.mini-card h3,
+.card h3{
+  margin-bottom: 2px;
+}
+.mini-card p,
+.card p{
   margin: 0;
   color: var(--muted);
 }
 
-.card .btn {
+/* “Visit Website” shouldn’t look like an ad button */
+.card .btn{
   display: inline-block;
   margin-top: 6px;
+  font-weight: 900;
+  color: rgba(16,19,24,.80);
+}
+.card .btn:hover{
+  color: rgba(16,19,24,.98);
 }
 
-/* ---------- Pills ---------- */
-
-.pill-row {
-  display: flex;
-  flex-wrap: wrap;
+/* Pills: keep them neutral */
+.pill-row{
+  display:flex;
+  flex-wrap:wrap;
   gap: 10px;
 }
 
-.pill {
+.pill{
   background: #fff;
   border: 1px solid var(--rule);
   border-radius: 999px;
   padding: 6px 10px;
-  font-size: .9rem;
-  font-weight: 600;
+  font-size: .92rem;
+  font-weight: 800;
+  color: rgba(16,19,24,.78);
   text-decoration: none;
-  color: var(--text);
+}
+.pill:hover{
+  color: rgba(16,19,24,.95);
 }
 
-.pill:hover {
-  background: #f0f2f5;
+/* FAQ: simple and calm */
+.faq{ display:grid; gap: 10px; }
+.faq-item{
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.faq-item summary{
+  cursor: pointer;
+  font-weight: 900;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item p{
+  margin: 10px 0 0;
+  color: rgba(16,19,24,.74);
 }
 
-/* ---------- Footer ---------- */
-
-footer {
+/* Footer */
+footer{
   border-top: 1px solid var(--rule);
   color: var(--muted);
   font-size: .95rem;
 }
 
-/* ---------- Mobile ---------- */
-
-@media (max-width: 700px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav a {
-    margin-left: 0;
-    margin-right: 14px;
-  }
+/* Mobile */
+@media (max-width: 700px){
+  .header-inner{ flex-direction: column; align-items: flex-start; }
+  .nav a{ margin-left: 0; margin-right: 14px; }
 }
