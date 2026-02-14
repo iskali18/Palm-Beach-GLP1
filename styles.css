@@ -6,7 +6,7 @@
    ========================= */
 
 :root{
-  --bg: #f2f4f7;          /* cool light gray */
+--bg: #fafaf8;
   --panel: #ffffff;
   --text: #101318;
   --muted: #5f6b7a;
@@ -54,24 +54,15 @@ ul{ margin:0; padding:0; list-style:none; }
 a{
   color: var(--link);
   text-decoration: none;
-  position: relative;
-  transition: color .18s ease;
+  transition: color .15s ease;
 }
 
-a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-2px;
-  width:0;
-  height:1px;
-  background: currentColor;
-  transition: width .18s ease;
+a:hover{
+  color: #0f2f42;        /* slightly darker */
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-a:hover::after{
-  width:100%;
-}
 
 
 /* Layout */
