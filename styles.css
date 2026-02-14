@@ -1,259 +1,256 @@
-/* ===== Reset ===== */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-img{max-width:100%;height:auto;display:block}
+/* =========================
+   SIMPLE EDITORIAL STYLE
+   ========================= */
 
-:root{
-  /* Editorial palette */
-  --page:#f4f1ec;          /* warm paper */
-  --ink:#151515;           /* soft black */
-  --muted:#5f5f5f;
-  --rule:#d9d1c7;          /* warm divider */
-  --panel:#fbfaf7;         /* subtle section panel */
-  --link:#1d4f63;          /* muted teal */
-  --max:980px;
+* {
+  box-sizing: border-box;
 }
 
-body{
-  background:var(--page);
-  color:var(--ink);
-  line-height:1.75;
-  overflow-x:hidden;
-
-  /* More “article” than “app” */
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-a{
-  color:var(--link);
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Colors ---------- */
+
+:root {
+  --bg: #f5f6f8;        /* cool light gray */
+  --panel: #ffffff;
+  --text: #14161a;
+  --muted: #6b7280;
+  --rule: #e6e8ee;
+  --link: #2b5568;
+  --max: 900px;
+}
+
+/* ---------- Base ---------- */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--link);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-a:hover{opacity:.85}
 
-p{margin:0 0 1rem}
-h1,h2,h3{margin:0 0 .6rem; line-height:1.18}
-
-/* Serif headline = instantly less “ad” */
-h1,h2{
-  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-  letter-spacing: -.01em;
+a:hover {
+  opacity: .8;
 }
 
-h1{font-size:clamp(2rem,3vw,2.7rem)}
-h2{font-size:clamp(1.35rem,2vw,1.8rem)}
-h3{
-  font-size:1.05rem;
-  font-weight:700;
-  margin-bottom:.25rem;
+p {
+  margin: 0 0 1rem;
 }
 
-.lead{font-size:1.05rem; color:rgba(21,21,21,.82)}
-.muted{color:var(--muted)}
-.meta{color:var(--muted); font-size:.95rem}
-
-/* Remove default list indent (your hero bullets) */
-ul{margin:0;padding:0;list-style:none}
-
-/* ===== Layout ===== */
-.container{
-  max-width:var(--max);
-  margin:0 auto;
-  width:100%;
-  padding:0 20px;
+h1, h2, h3 {
+  margin: 0 0 .6rem;
+  line-height: 1.2;
 }
 
-.section{padding:46px 0}
-.section-alt{
-  background:var(--panel);
-  border-top:1px solid var(--rule);
-  border-bottom:1px solid var(--rule);
+h1 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  letter-spacing: -0.02em;
 }
 
-.section-head{margin-bottom:18px}
-.section-cta{margin-top:14px}
-
-/* ===== Skip link ===== */
-.skip-link{
-  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
-}
-.skip-link:focus{
-  left:20px; top:20px; width:auto; height:auto;
-  padding:10px 12px;
-  background:var(--ink);
-  color:var(--panel);
-  z-index:9999;
+h2 {
+  font-size: 1.6rem;
 }
 
-/* ===== Header ===== */
-.header{
-  background:rgba(244,241,236,.9);
-  border-bottom:1px solid var(--rule);
-  position:sticky;
-  top:0;
-  z-index:20;
-  backdrop-filter: blur(8px);
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
-.header-inner{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:14px;
-  padding:16px 0;
+.lead {
+  font-size: 1.05rem;
+  color: rgba(20,22,26,.75);
 }
 
-.brand a{
-  color:var(--ink);
-  text-decoration:none;
-  font-weight:800;
-}
-.brand small{display:block; margin-top:2px; color:var(--muted)}
-
-.nav a{
-  color:var(--ink);
-  text-decoration:none;
-  font-weight:650;
-  margin-left:14px;
-}
-.nav a:hover{text-decoration:underline}
-
-/* ===== Hero ===== */
-.hero{
-  padding:58px 0;
-  border-bottom:1px solid var(--rule);
-  background:linear-gradient(180deg, rgba(251,250,247,.65), rgba(244,241,236,0));
+.muted {
+  color: var(--muted);
 }
 
-.hero-copy{max-width: none}
-.hero-cta{
-  margin:14px 0 10px;
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
+.meta {
+  color: var(--muted);
+  font-size: .95rem;
 }
 
-/* Kill “button ad” look: make .btn look like a text link */
-.btn{
-  background:none;
-  border:none;
-  padding:0;
-  border-radius:0;
-  font-weight:700;
-  color:var(--link);
-  text-decoration:underline;
+/* ---------- Layout ---------- */
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.section {
+  padding: 48px 0;
+}
+
+.section-alt {
+  background: var(--panel);
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  background: rgba(245,246,248,.9);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0;
+}
+
+.brand a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.brand small {
+  display: block;
+  color: var(--muted);
+}
+
+.nav a {
+  text-decoration: none;
+  margin-left: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 60px 0;
+}
+
+.hero-cta {
+  margin: 14px 0 10px;
+}
+
+/* buttons become simple links */
+.btn,
+.btn-ghost {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--link);
+  font-weight: 700;
+  text-decoration: underline;
   text-underline-offset: 3px;
-  display:inline;
-}
-.btn:hover{opacity:.85}
-
-/* Ghost same as normal link */
-.btn-ghost{}
-
-/* Bullets: quiet, editorial */
-.hero-bullets{
-  margin-top:12px;
-  display:grid;
-  gap:6px;
-}
-.hero-bullets li{
-  color:rgba(21,21,21,.78);
-}
-.hero-bullets li::before{
-  content:"— ";
-  color:rgba(21,21,21,.45);
+  cursor: pointer;
 }
 
-/* Listings hero (if used) */
-.page-hero{
-  padding:44px 0 18px;
-  border-bottom:1px solid var(--rule);
-  background:linear-gradient(180deg, rgba(251,250,247,.7), rgba(244,241,236,0));
+.hero-bullets {
+  margin-top: 12px;
 }
 
-/* ===== REMOVE “AD GRID” =====
-   Turn grids into single-column lists */
+.hero-bullets li {
+  color: rgba(20,22,26,.75);
+}
+
+.hero-bullets li::before {
+  content: "— ";
+  color: rgba(20,22,26,.4);
+}
+
+/* ---------- Directory Items ---------- */
+
 .card-grid,
-.grid-3{
-  display:block;
+.grid-3 {
+  display: block;
 }
 
-/* ===== REMOVE “CARDS” =====
-   Make items look like a clean directory list */
+/* remove boxes entirely */
 .card,
-.mini-card{
-  background:transparent;
-  border:none;
-  border-radius:0;
-  padding:14px 0;
-  box-shadow:none;
+.mini-card {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 28px;
 }
 
-/* Divider between items */
-.card + .card,
-.mini-card + .mini-card{
-  border-top:1px solid var(--rule);
+.card p,
+.mini-card p {
+  margin: 0;
+  color: var(--muted);
 }
 
-/* For mini cards (service categories), make them simple rows */
-.mini-card h3{margin:0 0 .2rem}
-.mini-card p{margin:0; color:var(--muted)}
-
-/* For cards, align the website link quietly */
-.card p{margin:0}
-.card .btn{
-  margin-top:6px;
-  display:inline-block;
+.card .btn {
+  display: inline-block;
+  margin-top: 6px;
 }
 
-/* ===== Pills (turn into understated inline links/chips) ===== */
-.pill-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+/* ---------- Pills ---------- */
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.pill{
-  background:transparent;
-  border:1px solid var(--rule);
-  color:var(--ink);
-  padding:6px 10px;
-  border-radius:999px;
-  font-weight:650;
-  font-size:.93rem;
-  text-decoration:none;
-}
-a.pill:hover{background:rgba(0,0,0,.03)}
-
-/* ===== Prose ===== */
-.prose{max-width:none}
-.prose p{max-width:80ch}
-
-/* ===== FAQ ===== */
-.faq{display:grid; gap:10px}
-.faq-item{
-  background:transparent;
-  border:1px solid var(--rule);
-  border-radius:0;
-  padding:12px 14px;
-}
-.faq-item summary{
-  cursor:pointer;
-  font-weight:750;
-  list-style:none;
-}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item p{margin:10px 0 0; color:rgba(21,21,21,.82)}
-
-/* ===== Footer ===== */
-footer{
-  border-top:1px solid var(--rule);
-  color:var(--muted);
-  font-size:.95rem;
+.pill {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
 }
 
-/* ===== Mobile ===== */
-@media (max-width:700px){
-  .header-inner{flex-direction:column; align-items:flex-start}
-  .nav a{margin-left:0; margin-right:14px}
+.pill:hover {
+  background: #f0f2f5;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 700px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav a {
+    margin-left: 0;
+    margin-right: 14px;
+  }
 }
