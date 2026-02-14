@@ -181,29 +181,14 @@ a:hover{
 .mini-card,
 .card{
   padding: 12px 0;
-  margin: 0 0 18px;
+  padding-left: 0;
+  margin: 0 0 22px;
   background: transparent;
   border: none;
   border-radius: 0;
 }
 
-/* Give items a tiny left accent so they feel designed without looking like ads */
-.mini-card,
-.card{
-  position: relative;
-  padding-left: 14px;
-}
-.mini-card::before,
-.card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top: 10px;
-  bottom: 10px;
-  width: 3px;
-  border-radius: 999px;
-  background: rgba(31,75,99,.20);
-}
+
 
 /* Make headings feel like headings, and links not scream “ad” */
 .mini-card h3,
