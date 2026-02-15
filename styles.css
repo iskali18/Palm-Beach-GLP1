@@ -116,6 +116,32 @@ a:hover{
   z-index:9999;
 }
 
+nav.nav .share-btn{ /* slightly more specific */
+  appearance:none;
+  background:none;
+  border:1px solid transparent;
+  padding:8px;
+  border-radius:12px;
+  color:#475569;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .2s ease;
+}
+
+nav.nav .share-btn svg{
+  width:22px;
+  height:22px;
+}
+
+nav.nav .share-btn:hover{
+  color:#0f172a;
+  border-color:var(--line);
+  background:#f8fafc;
+}
+
+
 /* Big image under first paragraph
 .hero-image{
   margin: 14px 0 14px;
