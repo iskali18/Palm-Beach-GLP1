@@ -28,6 +28,7 @@ body{
 
 p{ margin: 0 0 12px; }
 h1,h2,h3{ margin:0px 0 10px; line-height:1.2; }
+
 h1{
   font-size: clamp(2.1rem, 3.1vw, 2.8rem);
   letter-spacing:-.02em;
@@ -37,12 +38,12 @@ h2{
   font-size: 1.55rem;
   letter-spacing:-.01em;
   font-weight: 600;
-  margin-top: 36px
+  margin-top: 36px;
 }
 h3{
   font-size: 1.08rem;
   font-weight: 600;
-  margin-top: 32px
+  margin-top: 32px;
 }
 
 .muted{ color: var(--muted); }
@@ -67,13 +68,15 @@ h3{
   z-index: 10;
   backdrop-filter: blur(10px);
 }
+
 .header-inner{
   display:flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;              /* ✅ keep nav + button aligned */
   gap: 16px;
   padding: 14px 0;
 }
+
 .brand a{
   color: var(--text);
   text-decoration: none;
@@ -81,11 +84,20 @@ h3{
 }
 .brand small{ display:block; margin-top:2px; }
 
+/* Nav layout (prevents share icon dropping) */
+.nav{
+  display: flex;                    /* ✅ keep items on one line */
+  align-items: center;
+  gap: 14px;
+  flex-wrap: nowrap;                /* ✅ don't wrap to next line */
+  white-space: nowrap;
+}
+
 .nav a{
   color: rgba(16,19,24,.80);
   text-decoration: none;
   font-weight: 600;
-  margin-left: 14px;
+  margin-left: 0;                   /* ✅ gap handles spacing now */
 }
 .nav a:hover{
   color: rgba(16,19,24,.98);
@@ -93,7 +105,7 @@ h3{
   text-underline-offset: 3px;
 }
 
-/* Links: more obvious without looking “salesy” */
+/* Global links: obvious but not salesy */
 a{
   color: var(--link);
   text-decoration: none;
@@ -116,55 +128,53 @@ a:hover{
   z-index:9999;
 }
 
-nav.nav .share-btn{ /* slightly more specific */
-  appearance:none;
-  background:none;
-  border:1px solid transparent;
-  padding:8px;
-  border-radius:12px;
-  color:#475569;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:all .2s ease;
+/* ✅ Share button should behave like nav links (underline on hover, no box) */
+.nav .share-btn{
+  appearance: none;
+  background: none;
+  border: 0;                        /* ✅ remove border */
+  padding: 0;                       /* ✅ behave like text link */
+  margin: 0;
+  color: rgba(16,19,24,.80);        /* ✅ match nav links */
+  cursor: pointer;
+  font: inherit;                    /* ✅ same font as links */
+  font-weight: 600;                 /* ✅ same weight as links */
+  line-height: 1;                   /* ✅ align with text */
+  display: inline-flex;             /* ✅ inline like links */
+  align-items: center;
+  gap: 6px;
 }
 
-nav.nav .share-btn svg{
-  width:22px;
-  height:22px;
+/* Make the icon match the link size and sit on the baseline */
+.nav .share-btn svg{
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
-nav.nav .share-btn:hover{
-  color:#0f172a;
-  border-color:var(--line);
-  background:#f8fafc;
+/* Underline-on-hover like the other links */
+.nav .share-btn:hover{
+  color: rgba(16,19,24,.98);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-
-/* Big image under first paragraph
-.hero-image{
-  margin: 14px 0 14px;
+/* Keyboard focus (subtle, not a big ugly box) */
+.nav .share-btn:focus-visible{
+  outline: 2px solid rgba(31,75,99,.25);
+  outline-offset: 4px;
+  border-radius: 10px;
 }
-.hero-image img{
-  width: 100%;
-  border-radius: var(--radius);
-}
-.hero-image figcaption{
-  margin-top: 8px;
-  font-size: .95rem;
-} */
 
+/* Feature image */
 .feature-image{
   margin: 28px 0 34px;
 }
-
 .feature-image img{
   width: 100%;
   height: auto;
   display: block;
 }
-
 .image-caption{
   font-size: .9rem;
   color: #6b7280;
@@ -178,27 +188,25 @@ nav.nav .share-btn:hover{
   color: var(--muted);
 }
 
-/* Explore treatment types: tasteful “mini cards” without looking like ads */
+/* Explore treatment types */
 .service-list{
   margin-top: 14px;
   display: grid;
   gap: 12px;
   max-width: 760px;
 }
-
 .service-item{
   padding: 14px 16px;
   border: 1px solid var(--rule);
   border-radius: 14px;
   background: #fff;
 }
-
 .service-link{
   display: inline-block;
   font-size: 1.2rem;     /* ~19px */
   font-weight: 700;
   color: var(--link);
-  text-decoration: none; /* only underline on hover via global rule */
+  text-decoration: none;
 }
 .service-desc{
   margin: 6px 0 0;
@@ -212,7 +220,6 @@ nav.nav .share-btn:hover{
   gap: 14px;
   max-width: 760px;
 }
-
 .clinic{
   padding: 14px 16px;
   border: 1px solid var(--rule);
@@ -221,11 +228,10 @@ nav.nav .share-btn:hover{
 }
 .clinic-desc{ color: var(--muted); }
 
-/* “Action” links: a bit more visible but still tasteful */
+/* Action links */
 .action-link{
   font-weight: 600;
 }
-
 .cta-row{
   margin-top: 12px;
 }
@@ -239,5 +245,5 @@ nav.nav .share-btn:hover{
 /* Mobile */
 @media (max-width: 700px){
   .header-inner{ flex-direction: column; align-items: flex-start; }
-  .nav a{ margin-left: 0; margin-right: 14px; }
+  .nav{ gap: 14px; }
 }
