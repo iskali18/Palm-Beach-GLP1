@@ -37,11 +37,11 @@ h2{
   font-size: 1.55rem;
   letter-spacing:-.01em;
   font-weight: 600;
-  margin: 8px 0 10px;
 }
 h3{
   font-size: 1.08rem;
   font-weight: 600;
+  margin: 8px 0 10px;
 }
 
 .muted{ color: var(--muted); }
