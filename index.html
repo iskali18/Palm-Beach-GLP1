@@ -52,6 +52,12 @@
     <nav class="nav" aria-label="Primary">
       <a href="./index.html">Home</a>
       <a href="./listings.html">Clinics</a>
+      <button class="share-btn" type="button" id="shareBtn" aria-label="Share this page" title="Share">
+      <!-- simple share icon (SVG) -->
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7a2.5 2.5 0 0 0 0-1.39l7.02-4.11A2.99 2.99 0 1 0 14 5a3 3 0 0 0 .05.52L7.03 9.63a3 3 0 1 0 0 4.74l7.02 4.11c-.03.17-.05.34-.05.52a3 3 0 1 0 3-2.92Z"/>
+        </svg>
+      </button>
     </nav>
   </div>
 </header>
@@ -505,6 +511,33 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
+  <script>
+  (function () {
+    var btn = document.getElementById("shareBtn");
+    if (!btn) return;
+
+    btn.addEventListener("click", async function () {
+      var url = window.location.href;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: document.title, url: url });
+        } catch (e) { /* user canceled */ }
+        return;
+      }
+
+      // fallback: copy link
+      try {
+        await navigator.clipboard.writeText(url);
+        btn.setAttribute("aria-label", "Link copied");
+        setTimeout(function () { btn.setAttribute("aria-label", "Share this page"); }, 1500);
+      } catch (e) {
+        window.prompt("Copy this link:", url);
+      }
+    });
+  })();
+</script> 
 
 </body>
 </html>
