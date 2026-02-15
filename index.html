@@ -512,32 +512,28 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
-  <script>
-  (function () {
-    var btn = document.getElementById("shareBtn");
-    if (!btn) return;
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    btn.addEventListener("click", async function () {
-      var url = window.location.href;
+  var btn = document.getElementById("shareBtn");
+  if (!btn) return;
 
-      if (navigator.share) {
-        try {
-          await navigator.share({ title: document.title, url: url });
-        } catch (e) { /* user canceled */ }
-        return;
-      }
+  btn.addEventListener("click", async function () {
+    var url = window.location.href;
 
-      // fallback: copy link
+    if (navigator.share) {
       try {
-        await navigator.clipboard.writeText(url);
-        btn.setAttribute("aria-label", "Link copied");
-        setTimeout(function () { btn.setAttribute("aria-label", "Share this page"); }, 1500);
-      } catch (e) {
-        window.prompt("Copy this link:", url);
-      }
-    });
-  })();
-</script> 
+        await navigator.share({
+          title: document.title,
+          url: url
+        });
+      } catch (e) {}
+    }
+  });
+
+});
+</script>
+
 
 </body>
 </html>
